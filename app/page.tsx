@@ -11,9 +11,9 @@ import {
   Phone,
   Mail,
   User,
-  ScanEye,
+  ScanFace, // Mudamos para este ícone
   Sparkles,
-  Layers
+  ScanEye
 } from "lucide-react";
 
 export default function Home() {
@@ -124,21 +124,17 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           
-          {/* CARD 1: MULTIFOCAIS (TECH GLASSES) */}
+          {/* CARD 1: MULTIFOCAIS (TECH SCAN) */}
           <div className="group relative overflow-hidden rounded-[2rem] bg-white border border-slate-100 p-10 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
             {/* Efeito de Fundo */}
             <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
               <ScanEye className="w-48 h-48 text-blue-600" />
             </div>
             
-            {/* Ícone Principal "Tunado" */}
+            {/* Ícone Principal: ScanFace (Mais tecnológico e limpo) */}
             <div className="h-20 w-20 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-8 relative">
               <div className="absolute inset-0 border-2 border-blue-100 rounded-2xl animate-pulse"></div>
-              <Glasses className="w-10 h-10 relative z-10" strokeWidth={2} />
-              {/* Detalhe Tech: Pequeno ícone de camadas sobreposto */}
-              <div className="absolute -bottom-2 -right-2 bg-white p-1 rounded-full shadow-sm border border-blue-100">
-                <Layers className="w-4 h-4 text-cyan-500" />
-              </div>
+              <ScanFace className="w-10 h-10 relative z-10" strokeWidth={2} />
             </div>
 
             <h3 className="text-2xl font-bold text-slate-900 mb-4">Multifocais Hayamax</h3>
