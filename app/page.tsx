@@ -21,7 +21,7 @@ import {
   Briefcase,
   Eye,
   Monitor,
-  Download, // Importei o ícone de download
+  Download,
   FileText
 } from "lucide-react";
 
@@ -215,7 +215,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* CTA Final (DOWNLOAD FUNCIONAL) */}
+              {/* CTA Final (DOWNLOAD) */}
               <div className="mt-12 pt-8 border-t border-slate-100 text-center bg-slate-50 -mx-8 -mb-8 p-8 md:-mx-12 md:-mb-12 md:p-12">
                 <div className="flex flex-col items-center">
                   <div className="h-12 w-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mb-4">
@@ -226,7 +226,6 @@ export default function Home() {
                     Baixe o catálogo completo com curvas base, alturas de montagem e tabelas de disponibilidade.
                   </p>
                   
-                  {/* BOTÃO DE DOWNLOAD REAL */}
                   <a 
                     href="/catalogo.pdf" 
                     download="Catalogo_Hayamax_2024.pdf" 
@@ -329,13 +328,25 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-5 w-full justify-center">
-            <Button size="lg" className="h-16 px-12 text-lg font-bold bg-blue-700 hover:bg-blue-800 shadow-xl shadow-blue-700/30 rounded-full transition-all hover:-translate-y-1">
-              Conhecer Produtos
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button size="lg" variant="outline" className="h-16 px-12 text-lg font-bold border-2 border-slate-200 text-slate-700 hover:bg-white hover:border-blue-600 hover:text-blue-700 rounded-full bg-white/60 backdrop-blur-sm transition-all hover:-translate-y-1">
-              Falar com Consultor
-            </Button>
+            {/* BOTÃO 1: SCROLL PARA PRODUTOS */}
+            <a href="#produtos" className="w-full sm:w-auto">
+              <Button size="lg" className="w-full h-16 px-12 text-lg font-bold bg-blue-700 hover:bg-blue-800 shadow-xl shadow-blue-700/30 rounded-full transition-all hover:-translate-y-1">
+                Conhecer Produtos
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </a>
+            
+            {/* BOTÃO 2: WHATSAPP */}
+            <a 
+              href="https://wa.me/554333250600?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20as%20lentes%20Hayamax." 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto"
+            >
+              <Button size="lg" variant="outline" className="w-full h-16 px-12 text-lg font-bold border-2 border-slate-200 text-slate-700 hover:bg-white hover:border-blue-600 hover:text-blue-700 rounded-full bg-white/60 backdrop-blur-sm transition-all hover:-translate-y-1">
+                Falar com Consultor
+              </Button>
+            </a>
           </div>
         </div>
       </section>
@@ -373,15 +384,15 @@ export default function Home() {
             </Button>
           </div>
 
-          {/* POSIÇÃO 2 (MEIO): MULTIFOCAIS (COM AÇÃO DE MODAL) */}
-          <div className="group relative overflow-hidden rounded-[2rem] bg-white border border-slate-100 p-10 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+          {/* POSIÇÃO 2 (MEIO): MULTIFOCAIS (COM DESTAQUE CINZA) */}
+          <div className="group relative overflow-hidden rounded-[2rem] bg-slate-100 border border-slate-200 p-10 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
             {/* Efeito de Fundo */}
             <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
               <ScanEye className="w-48 h-48 text-blue-600" />
             </div>
             
             {/* Ícone Principal */}
-            <div className="h-20 w-20 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-8 relative">
+            <div className="h-20 w-20 bg-white rounded-2xl flex items-center justify-center text-blue-600 mb-8 relative shadow-sm border border-slate-200">
               <Glasses className="w-10 h-10 relative z-10" strokeWidth={2} />
             </div>
 
@@ -393,8 +404,7 @@ export default function Home() {
             {/* BOTÃO QUE ABRE O MODAL */}
             <Button 
               onClick={openModal}
-              variant="outline" 
-              className="w-full h-12 border-blue-200 text-blue-700 font-bold group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-all"
+              className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-white font-bold shadow-lg shadow-blue-600/20 transition-all"
             >
               Ver Todas as Opções
             </Button>
