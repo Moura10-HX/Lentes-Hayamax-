@@ -11,71 +11,86 @@ import {
   User
 } from "lucide-react";
 
-// --- ÍCONES EXCLUSIVOS HAYAMAX (CUSTOM SVGS) ---
+// --- ILUSTRAÇÕES TÉCNICAS EXCLUSIVAS (VISUAL STORYTELLING) ---
 
-const IconMultifocal = () => (
-  <svg width="100%" height="100%" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+const TechMultifocal = () => (
+  <svg width="100%" height="100%" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    {/* Contorno da Lente */}
+    <path d="M50 5C25 5 5 25 5 50C5 75 25 95 50 95C75 95 95 75 95 50C95 25 75 5 50 5Z" stroke="#E2E8F0" strokeWidth="2" fill="#F8FAFC"/>
+    
+    {/* O Corredor Progressivo (A "Ampulheta" da Visão) */}
     <defs>
-      <linearGradient id="multiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#2563EB" />
-        <stop offset="100%" stopColor="#06B6D4" />
+      <linearGradient id="corridorGrad" x1="50" y1="10" x2="50" y2="90" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.2"/>
+        <stop offset="50%" stopColor="#3B82F6" stopOpacity="0.6"/>
+        <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.8"/>
       </linearGradient>
     </defs>
-    {/* Lente Base */}
-    <path d="M32 4C16.5 4 4 16.5 4 32C4 47.5 16.5 60 32 60C47.5 60 60 47.5 60 32C60 16.5 47.5 4 32 4Z" stroke="url(#multiGrad)" strokeWidth="2" strokeOpacity="0.3"/>
-    {/* Linhas de Progressão (Campos Visuais) */}
-    <path d="M20 20C24 22 40 22 44 20" stroke="url(#multiGrad)" strokeWidth="3" strokeLinecap="round"/>
-    <path d="M24 32C26 33 38 33 40 32" stroke="url(#multiGrad)" strokeWidth="3" strokeLinecap="round"/>
-    <path d="M28 44C30 45 34 45 36 44" stroke="url(#multiGrad)" strokeWidth="3" strokeLinecap="round"/>
-    {/* Eixo Digital Vertical */}
-    <path d="M32 12V52" stroke="url(#multiGrad)" strokeWidth="1" strokeDasharray="4 4"/>
-    {/* Pontos de Foco */}
-    <circle cx="32" cy="20" r="2" fill="#2563EB"/>
-    <circle cx="32" cy="32" r="2" fill="#2563EB"/>
-    <circle cx="32" cy="44" r="2" fill="#2563EB"/>
+    
+    {/* Desenho do Campo Visual Ampliado */}
+    <path d="M30 20 C30 20, 42 40, 42 50 C42 60, 35 80, 35 80 L65 80 C65 80, 58 60, 58 50 C58 40, 70 20, 70 20 Z" fill="url(#corridorGrad)" stroke="#2563EB" strokeWidth="2"/>
+    
+    {/* Marcadores de Distância */}
+    <circle cx="50" cy="25" r="3" fill="#2563EB" /> {/* Longe */}
+    <circle cx="50" cy="50" r="3" fill="#2563EB" /> {/* Intermediário */}
+    <circle cx="50" cy="75" r="4" fill="#2563EB" stroke="white" strokeWidth="2"/> {/* Perto (Leitura) */}
+    
+    {/* Linhas de Grade (Grid Digital) - Representando Tecnologia */}
+    <path d="M10 50 H90" stroke="#CBD5E1" strokeWidth="1" strokeDasharray="4 4"/>
+    <path d="M50 10 V90" stroke="#CBD5E1" strokeWidth="1" strokeDasharray="4 4"/>
+    
+    {/* Texto Explicativo (Opcional, mas ajuda na interpretação visual) */}
+    <text x="75" y="25" fontSize="8" fill="#64748B" fontWeight="bold">LONGE</text>
+    <text x="75" y="78" fontSize="8" fill="#64748B" fontWeight="bold">PERTO</text>
   </svg>
 );
 
-const IconBlueShield = () => (
-  <svg width="100%" height="100%" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#06B6D4" />
-        <stop offset="100%" stopColor="#3B82F6" />
-      </linearGradient>
-    </defs>
-    {/* Escudo */}
-    <path d="M32 4L12 12V26C12 39 20 50 32 58C44 50 52 39 52 26V12L32 4Z" stroke="url(#shieldGrad)" strokeWidth="3" fill="url(#shieldGrad)" fillOpacity="0.1"/>
-    {/* Circuito Digital Interno */}
-    <path d="M32 20V44" stroke="url(#shieldGrad)" strokeWidth="2"/>
-    <path d="M20 32H44" stroke="url(#shieldGrad)" strokeWidth="2"/>
-    <circle cx="32" cy="32" r="6" stroke="url(#shieldGrad)" strokeWidth="2"/>
-    {/* Feixe de Luz Bloqueado */}
-    <path d="M58 12L50 20" stroke="#F59E0B" strokeWidth="3" strokeLinecap="round"/>
-    <path d="M60 22L52 26" stroke="#F59E0B" strokeWidth="3" strokeLinecap="round"/>
+const TechBlueShield = () => (
+  <svg width="100%" height="100%" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    {/* Lente de Perfil (Curva) */}
+    <path d="M60 10 C75 30 75 70 60 90" stroke="#94A3B8" strokeWidth="4" strokeLinecap="round" fill="none"/>
+    
+    {/* Raio Azul Nocivo (Vem da esquerda e bate) */}
+    <path d="M10 30 L58 45" stroke="#3B82F6" strokeWidth="4" strokeLinecap="round" className="animate-pulse"/>
+    <path d="M10 40 L58 50" stroke="#3B82F6" strokeWidth="4" strokeLinecap="round" className="animate-pulse"/>
+    <path d="M10 50 L58 55" stroke="#3B82F6" strokeWidth="4" strokeLinecap="round" className="animate-pulse"/>
+    
+    {/* Reflexo (Bloqueio) */}
+    <path d="M58 45 L40 25" stroke="#3B82F6" strokeWidth="2" strokeDasharray="4 4"/>
+    <path d="M58 50 L35 40" stroke="#3B82F6" strokeWidth="2" strokeDasharray="4 4"/>
+    
+    {/* Luz Boa Passando (Amarela/Verde suave) */}
+    <path d="M62 48 L90 52" stroke="#10B981" strokeWidth="3" opacity="0.6"/>
+    
+    {/* Escudo Simbólico no Ponto de Impacto */}
+    <circle cx="60" cy="50" r="8" fill="#06B6D4" fillOpacity="0.2" stroke="#06B6D4" strokeWidth="2"/>
   </svg>
 );
 
-const IconSunActive = () => (
-  <svg width="100%" height="100%" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+const TechSunActive = () => (
+  <svg width="100%" height="100%" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
-      <linearGradient id="sunGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stopColor="#F59E0B" /> {/* Sol */}
-        <stop offset="100%" stopColor="#1E293B" /> {/* Escuro */}
+      <linearGradient id="splitLens" x1="0" y1="0" x2="100" y2="0" gradientUnits="userSpaceOnUse">
+        <stop offset="45%" stopColor="#F1F5F9" /> {/* Claro */}
+        <stop offset="55%" stopColor="#1E293B" /> {/* Escuro */}
       </linearGradient>
     </defs>
+    
     {/* Lente Dividida */}
-    <circle cx="32" cy="32" r="26" stroke="url(#sunGrad)" strokeWidth="3"/>
+    <circle cx="50" cy="50" r="40" fill="url(#splitLens)" stroke="#94A3B8" strokeWidth="2"/>
     
-    {/* Lado Esquerdo (Sol/UV) */}
-    <path d="M32 14V6" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round"/>
-    <path d="M14 32H6" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round"/>
-    <path d="M19 19L13 13" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round"/>
-    <path d="M19 45L13 51" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round"/>
+    {/* Lado Esquerdo (Indoor/Claro) */}
+    <path d="M30 40 L40 40 M35 35 L35 45" stroke="#94A3B8" strokeWidth="2"/> {/* Cruz de Mira leve */}
+    <text x="20" y="70" fontSize="8" fill="#64748B">INDOOR</text>
     
-    {/* Preenchimento Transição */}
-    <path d="M32 58C46.3594 58 58 46.3594 58 32C58 17.6406 46.3594 6 32 6V58Z" fill="#1E293B" fillOpacity="0.8"/>
-    <path d="M32 6C17.6406 6 6 17.6406 6 32C6 46.3594 17.6406 58 32 58V6Z" fill="#F59E0B" fillOpacity="0.1"/>
+    {/* Lado Direito (Outdoor/Escuro + Sol) */}
+    <circle cx="75" cy="25" r="8" fill="#F59E0B" />
+    <path d="M75 12 V18 M75 32 V38 M88 25 H82 M62 25 H68" stroke="#F59E0B" strokeWidth="2"/>
+    
+    {/* Setas de Transição */}
+    <path d="M45 50 L55 50" stroke="#F59E0B" strokeWidth="2" markerEnd="url(#arrowhead)"/>
+    
+    <text x="60" y="70" fontSize="8" fill="#94A3B8">OUTDOOR</text>
   </svg>
 );
 
@@ -178,7 +193,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- SEÇÃO PRODUTOS (COM ÍCONES EXCLUSIVOS) --- */}
+      {/* --- SEÇÃO PRODUTOS (COM TECH VISUALIZATIONS) --- */}
       <section id="produtos" className="pt-16 pb-28 px-6 max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">Nossas Linhas Premium</h2>
@@ -190,15 +205,12 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           
           {/* CARD 1: MULTIFOCAIS */}
-          <div className="group relative overflow-hidden rounded-[2rem] bg-white border border-slate-100 p-10 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-            <div className="absolute -right-10 -top-10 w-64 h-64 opacity-5 group-hover:opacity-10 transition-opacity">
-              <IconMultifocal />
-            </div>
-            <div className="h-20 w-20 bg-blue-50 rounded-3xl flex items-center justify-center mb-8 p-4 shadow-inner">
-              <IconMultifocal />
+          <div className="group relative overflow-hidden rounded-[2rem] bg-white border border-slate-100 p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col">
+            <div className="w-full h-48 bg-slate-50 rounded-2xl mb-6 p-4 flex items-center justify-center border border-slate-100 group-hover:border-blue-100 transition-colors">
+              <TechMultifocal />
             </div>
             <h3 className="text-2xl font-bold text-slate-900 mb-4">Multifocais Hayamax</h3>
-            <p className="text-slate-600 mb-10 text-lg leading-relaxed">
+            <p className="text-slate-600 mb-8 text-lg leading-relaxed flex-grow">
               Progressão suave com campos visuais ampliados. Tecnologia FreeForm que elimina distorções periféricas.
             </p>
             <Button variant="outline" className="w-full h-12 border-blue-200 text-blue-700 font-bold group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-all">
@@ -207,15 +219,12 @@ export default function Home() {
           </div>
 
           {/* CARD 2: BLUESHIELD */}
-          <div className="group relative overflow-hidden rounded-[2rem] bg-slate-900 text-white p-10 shadow-2xl transform md:-translate-y-8 border border-slate-800 ring-1 ring-white/10">
-            <div className="absolute -right-10 -top-10 w-64 h-64 opacity-10">
-              <IconBlueShield />
-            </div>
-            <div className="h-20 w-20 bg-white/10 rounded-3xl flex items-center justify-center mb-8 p-4 shadow-inner ring-1 ring-white/20">
-              <IconBlueShield />
+          <div className="group relative overflow-hidden rounded-[2rem] bg-slate-900 text-white p-8 shadow-2xl transform md:-translate-y-8 border border-slate-800 ring-1 ring-white/10 flex flex-col">
+            <div className="w-full h-48 bg-slate-800/50 rounded-2xl mb-6 p-4 flex items-center justify-center border border-slate-700">
+              <TechBlueShield />
             </div>
             <h3 className="text-3xl font-bold text-white mb-4">BlueShield</h3>
-            <p className="text-slate-300 mb-10 text-lg leading-relaxed">
+            <p className="text-slate-300 mb-8 text-lg leading-relaxed flex-grow">
               A defesa definitiva contra a luz azul nociva. Proteção para quem vive conectado, reduzindo a fadiga ocular.
             </p>
             <Button className="w-full h-14 bg-cyan-500 hover:bg-cyan-400 text-white border-none font-bold text-lg shadow-lg shadow-cyan-500/20 transition-all hover:scale-105">
@@ -224,15 +233,12 @@ export default function Home() {
           </div>
 
           {/* CARD 3: SUN ACTIVE */}
-          <div className="group relative overflow-hidden rounded-[2rem] bg-white border border-slate-100 p-10 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-            <div className="absolute -right-10 -top-10 w-64 h-64 opacity-5 group-hover:opacity-10 transition-opacity">
-              <IconSunActive />
-            </div>
-            <div className="h-20 w-20 bg-amber-50 rounded-3xl flex items-center justify-center mb-8 p-4 shadow-inner">
-              <IconSunActive />
+          <div className="group relative overflow-hidden rounded-[2rem] bg-white border border-slate-100 p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col">
+            <div className="w-full h-48 bg-slate-50 rounded-2xl mb-6 p-4 flex items-center justify-center border border-slate-100 group-hover:border-amber-100 transition-colors">
+              <TechSunActive />
             </div>
             <h3 className="text-2xl font-bold text-slate-900 mb-4">Sun Active</h3>
-            <p className="text-slate-600 mb-10 text-lg leading-relaxed">
+            <p className="text-slate-600 mb-8 text-lg leading-relaxed flex-grow">
               Inteligência fotossensível. Lentes que escurecem rapidamente ao sol e clareiam em ambientes internos.
             </p>
             <Button variant="outline" className="w-full h-12 border-amber-200 text-amber-700 font-bold group-hover:bg-amber-500 group-hover:text-white group-hover:border-amber-500 transition-all">
