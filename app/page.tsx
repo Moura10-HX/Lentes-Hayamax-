@@ -35,25 +35,24 @@ export default function Home() {
         </div>
       </div>
 
-      {/* --- HEADER PRINCIPAL (ALTURA PADRÃO RESTAURADA) --- */}
+      {/* --- HEADER PRINCIPAL --- */}
       <header className="sticky top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-lg shadow-slate-200/50">
-        {/* Voltei para h-20 (mobile) e h-24 (desktop) - Altura elegante */}
         <div className="max-w-7xl mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
           
-          {/* LOGO HAYAMAX - TÉCNICA DE ZOOM */}
-          <div className="relative w-48 h-full md:w-72 flex items-center overflow-visible">
-            {/* 
-               TRUQUE DE DESIGN:
-               scale-125: Aumenta a imagem em 25% além do tamanho original
-               origin-left: Mantém ela alinhada à esquerda
-               object-contain: Garante que não distorça
-            */}
+          {/* LOGO CONTAINER - SOLUÇÃO SÊNIOR */}
+          {/* 
+             Lógica: Definimos h-full (altura total do header) e w-[600px] (largura exagerada).
+             Isso garante que o único limite para a logo crescer seja a altura do header,
+             e não a largura da caixa.
+          */}
+          <div className="relative h-full w-[200px] md:w-[500px] py-2"> 
             <Image 
               src="/logo.jpg" 
               alt="Hayamax Lentes" 
               fill 
-              className="object-contain object-left scale-125 origin-left"
+              className="object-contain object-left"
               priority
+              sizes="(max-width: 768px) 200px, 500px"
             />
           </div>
           
