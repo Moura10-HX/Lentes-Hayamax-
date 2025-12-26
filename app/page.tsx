@@ -11,10 +11,39 @@ import {
   Phone,
   Mail,
   User,
-  ScanFace, // Mudamos para este ícone
+  ScanEye,
   Sparkles,
-  ScanEye
+  Layers
 } from "lucide-react";
+
+// --- ÍCONE PERSONALIZADO: SOL DE ÓCULOS (COOL SUN) ---
+const CoolSunIcon = () => (
+  <svg width="100%" height="100%" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    {/* Raios do Sol */}
+    <path d="M50 10V20 M50 80V90 M90 50H80 M20 50H10 M78 22L71 29 M29 71L22 78 M78 78L71 71 M29 29L22 22" stroke="#F59E0B" strokeWidth="4" strokeLinecap="round"/>
+    
+    {/* Corpo do Sol */}
+    <circle cx="50" cy="50" r="25" fill="#F59E0B" />
+    
+    {/* Óculos Escuros (Transition) */}
+    <defs>
+      <linearGradient id="lensGrad" x1="0" y1="0" x2="100" y2="0">
+        <stop offset="0%" stopColor="#1E293B" /> {/* Escuro */}
+        <stop offset="100%" stopColor="#94A3B8" /> {/* Claro */}
+      </linearGradient>
+    </defs>
+    
+    {/* Armação e Lentes */}
+    <path d="M35 48 C35 48 35 55 42 55 C49 55 49 48 49 48" fill="url(#lensGrad)" stroke="#1E293B" strokeWidth="2"/>
+    <path d="M51 48 C51 48 51 55 58 55 C65 55 65 48 65 48" fill="url(#lensGrad)" stroke="#1E293B" strokeWidth="2"/>
+    <path d="M49 48 H 51" stroke="#1E293B" strokeWidth="2"/> {/* Ponte */}
+    <path d="M35 48 L 30 45" stroke="#1E293B" strokeWidth="2"/> {/* Haste Esq */}
+    <path d="M65 48 L 70 45" stroke="#1E293B" strokeWidth="2"/> {/* Haste Dir */}
+    
+    {/* Sorriso Confiante */}
+    <path d="M42 65 Q50 70 58 65" stroke="#78350F" strokeWidth="2" strokeLinecap="round"/>
+  </svg>
+);
 
 export default function Home() {
   return (
@@ -124,17 +153,16 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           
-          {/* CARD 1: MULTIFOCAIS (TECH SCAN) */}
+          {/* CARD 1: MULTIFOCAIS (GLASSES VOLTOU) */}
           <div className="group relative overflow-hidden rounded-[2rem] bg-white border border-slate-100 p-10 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
             {/* Efeito de Fundo */}
             <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
               <ScanEye className="w-48 h-48 text-blue-600" />
             </div>
             
-            {/* Ícone Principal: ScanFace (Mais tecnológico e limpo) */}
+            {/* Ícone Principal: Glasses (Clássico e Eficiente) */}
             <div className="h-20 w-20 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-8 relative">
-              <div className="absolute inset-0 border-2 border-blue-100 rounded-2xl animate-pulse"></div>
-              <ScanFace className="w-10 h-10 relative z-10" strokeWidth={2} />
+              <Glasses className="w-10 h-10 relative z-10" strokeWidth={2} />
             </div>
 
             <h3 className="text-2xl font-bold text-slate-900 mb-4">Multifocais Hayamax</h3>
@@ -146,7 +174,7 @@ export default function Home() {
             </Button>
           </div>
 
-          {/* CARD 2: BLUESHIELD (REALISTIC SHIELD) */}
+          {/* CARD 2: BLUESHIELD (REALISTIC SHIELD - MANTIDO) */}
           <div className="group relative overflow-hidden rounded-[2rem] bg-slate-900 text-white p-10 shadow-2xl transform md:-translate-y-8 border border-slate-800 ring-1 ring-white/10">
             {/* Efeito de Fundo */}
             <div className="absolute top-0 right-0 p-4 opacity-10">
@@ -169,18 +197,18 @@ export default function Home() {
             </Button>
           </div>
 
-          {/* CARD 3: SUN ACTIVE (AUTHENTIC SUN) */}
+          {/* CARD 3: SUN ACTIVE (SOL DE ÓCULOS) */}
           <div className="group relative overflow-hidden rounded-[2rem] bg-white border border-slate-100 p-10 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
             {/* Efeito de Fundo */}
             <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
               <Sun className="w-48 h-48 text-amber-500" />
             </div>
 
-            {/* Ícone Principal "Tunado" */}
-            <div className="h-20 w-20 bg-amber-50 rounded-2xl flex items-center justify-center text-amber-600 mb-8 relative">
-              <Sun className="w-10 h-10" strokeWidth={2.5} />
-              {/* Detalhe Tech: Brilhos de autenticidade */}
-              <Sparkles className="absolute -top-2 -right-2 w-6 h-6 text-yellow-400 animate-pulse" fill="currentColor" />
+            {/* Ícone Principal: Cool Sun (Sol de Óculos) */}
+            <div className="h-20 w-20 bg-amber-50 rounded-2xl flex items-center justify-center mb-8 relative">
+              <div className="w-12 h-12">
+                <CoolSunIcon />
+              </div>
             </div>
 
             <h3 className="text-2xl font-bold text-slate-900 mb-4">Sun Active</h3>
