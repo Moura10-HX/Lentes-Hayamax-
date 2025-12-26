@@ -18,8 +18,8 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white">
       
-      {/* --- TOP BAR (FAIXA SUPERIOR CORPORATIVA) --- */}
-      <div className="bg-slate-950 text-slate-300 py-2.5 px-6 border-b border-slate-800 hidden md:block">
+      {/* --- TOP BAR (FAIXA SUPERIOR) --- */}
+      <div className="bg-slate-950 text-slate-300 py-3 px-6 border-b border-slate-800 hidden md:block">
         <div className="max-w-7xl mx-auto flex justify-between items-center text-xs font-medium tracking-wide">
           <div className="flex gap-6">
             <span className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer">
@@ -35,12 +35,14 @@ export default function Home() {
         </div>
       </div>
 
-      {/* --- HEADER PRINCIPAL (MAIOR E MAIS IMPONENTE) --- */}
+      {/* --- HEADER PRINCIPAL (MAIS ALTO PARA A LOGO CABER) --- */}
       <header className="sticky top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-lg shadow-slate-200/50">
-        <div className="max-w-7xl mx-auto px-6 h-28 flex items-center justify-between">
+        {/* Aumentei a altura de h-28 para h-32 (128px) */}
+        <div className="max-w-7xl mx-auto px-6 h-32 flex items-center justify-between">
           
-          {/* LOGO HAYAMAX - MAXIMIZADA */}
-          <div className="relative w-72 h-20 md:w-96 md:h-24 flex-shrink-0">
+          {/* LOGO HAYAMAX - LIBERADA */}
+          {/* Aumentei a largura para w-[400px] e altura para h-28 */}
+          <div className="relative w-[280px] h-20 md:w-[450px] md:h-28 flex-shrink-0 -ml-4">
             <Image 
               src="/logo.jpg" 
               alt="Hayamax Lentes" 
@@ -50,8 +52,8 @@ export default function Home() {
             />
           </div>
           
-          {/* NAVEGAÇÃO - ESTILO PREMIUM */}
-          <nav className="hidden lg:flex gap-10 text-sm font-bold text-slate-700 uppercase tracking-wider">
+          {/* NAVEGAÇÃO */}
+          <nav className="hidden lg:flex gap-8 text-sm font-bold text-slate-700 uppercase tracking-wider">
             <a href="#produtos" className="relative group py-2">
               <span className="group-hover:text-blue-700 transition-colors">Produtos</span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
@@ -70,7 +72,6 @@ export default function Home() {
             </a>
           </nav>
 
-          {/* BOTÃO ÁREA DO LOJISTA */}
           <Button className="bg-blue-700 hover:bg-blue-800 text-white font-bold px-8 h-12 rounded-full shadow-lg shadow-blue-700/20 hidden md:inline-flex items-center gap-2 transition-all hover:scale-105">
             <User className="w-4 h-4" />
             Área do Lojista
@@ -78,10 +79,11 @@ export default function Home() {
         </div>
       </header>
 
-      {/* --- HERO SECTION --- */}
-      <section className="pt-20 pb-24 px-6 bg-slate-50 relative overflow-hidden min-h-[85vh] flex items-center">
+      {/* --- HERO SECTION (BANNER) --- */}
+      {/* Reduzi min-h-[85vh] para min-h-[60vh] e pb-24 para pb-12 para diminuir o buraco */}
+      <section className="pt-12 pb-12 px-6 bg-slate-50 relative overflow-hidden min-h-[60vh] flex items-center">
         
-        {/* BACKGROUND IMAGE (TECH) */}
+        {/* BACKGROUND IMAGE */}
         <div className="absolute inset-0 z-0">
            <Image 
               src="/tech.jpg" 
@@ -95,8 +97,7 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto flex flex-col items-center text-center relative z-10">
           
-          {/* BADGE */}
-          <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white border border-blue-100 shadow-md mb-10">
+          <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white border border-blue-100 shadow-md mb-8">
             <span className="relative flex h-3 w-3 shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-600"></span>
@@ -106,14 +107,14 @@ export default function Home() {
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-slate-900 tracking-tight mb-8 max-w-6xl leading-[1.1]">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-slate-900 tracking-tight mb-6 max-w-6xl leading-[1.1]">
             A evolução da <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-blue-600 to-cyan-500">
               sua visão.
             </span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mb-12 leading-relaxed font-medium">
+          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mb-10 leading-relaxed font-medium">
             Unimos precisão científica e conforto absoluto. Conheça as lentes que estão redefinindo o padrão de qualidade no mercado óptico.
           </p>
 
@@ -129,9 +130,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- SEÇÃO PRODUTOS (VITRINE) --- */}
-      <section id="produtos" className="py-28 px-6 max-w-7xl mx-auto">
-        <div className="text-center mb-20">
+      {/* --- SEÇÃO PRODUTOS --- */}
+      {/* Mudei py-28 para pt-16 (padding top menor) para colar na seção de cima */}
+      <section id="produtos" className="pt-16 pb-28 px-6 max-w-7xl mx-auto">
+        <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">Nossas Linhas Premium</h2>
           <p className="text-slate-600 max-w-2xl mx-auto text-xl">
             Desenvolvidas com surfaçagem digital de última geração para atender a cada necessidade visual.
@@ -156,7 +158,7 @@ export default function Home() {
             </Button>
           </div>
 
-          {/* CARD 2: BLUESHIELD (DESTAQUE) */}
+          {/* CARD 2: BLUESHIELD */}
           <div className="group relative overflow-hidden rounded-[2rem] bg-slate-900 text-white p-10 shadow-2xl transform md:-translate-y-8 border border-slate-800 ring-1 ring-white/10">
             <div className="absolute top-0 right-0 p-4 opacity-10">
               <Monitor className="w-48 h-48 text-cyan-400" />
@@ -229,7 +231,7 @@ export default function Home() {
             </div>
           </div>
           
-          {/* FOTO DO LABORATÓRIO - DESTAQUE */}
+          {/* FOTO DO LABORATÓRIO */}
           <div className="flex-1 w-full relative group">
             <div className="absolute -inset-4 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-[2.5rem] opacity-20 blur-3xl group-hover:opacity-30 transition-opacity duration-700"></div>
             <div className="relative h-[500px] w-full rounded-[2rem] overflow-hidden shadow-2xl border-8 border-white transform transition-transform duration-700 group-hover:scale-[1.02]">
