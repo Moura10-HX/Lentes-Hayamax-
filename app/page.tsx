@@ -20,10 +20,12 @@ import {
   Star,
   Briefcase,
   Eye,
-  Monitor
+  Monitor,
+  Download, // Importei o ícone de download
+  FileText
 } from "lucide-react";
 
-// --- DADOS DOS PRODUTOS (CATÁLOGO ORGANIZADO) ---
+// --- DADOS DOS PRODUTOS ---
 const portfolioHayamax = {
   multifocais: [
     {
@@ -155,7 +157,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* SEÇÃO 2: LENTES ESPECIAIS (WORK) */}
+              {/* SEÇÃO 2: LENTES ESPECIAIS */}
               <div className="mb-10">
                 <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2 pb-2 border-b border-slate-100">
                   <Monitor className="w-5 h-5 text-purple-600" />
@@ -184,7 +186,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* SEÇÃO 3: LENTES PERTO E LONGE DIGITAIS (SINGLE) */}
+              {/* SEÇÃO 3: LENTES PERTO E LONGE DIGITAIS */}
               <div className="mb-10">
                 <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2 pb-2 border-b border-slate-100">
                   <Eye className="w-5 h-5 text-emerald-600" />
@@ -213,12 +215,31 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* CTA Final */}
-              <div className="mt-12 pt-8 border-t border-slate-100 text-center">
-                <p className="text-slate-500 mb-4">Dúvida sobre qual indicar?</p>
-                <Button className="w-full bg-slate-900 hover:bg-slate-800 h-12 text-lg">
-                  Baixar Catálogo Técnico PDF
-                </Button>
+              {/* CTA Final (DOWNLOAD FUNCIONAL) */}
+              <div className="mt-12 pt-8 border-t border-slate-100 text-center bg-slate-50 -mx-8 -mb-8 p-8 md:-mx-12 md:-mb-12 md:p-12">
+                <div className="flex flex-col items-center">
+                  <div className="h-12 w-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mb-4">
+                    <FileText className="w-6 h-6" />
+                  </div>
+                  <h4 className="text-lg font-bold text-slate-900 mb-2">Material de Apoio Técnico</h4>
+                  <p className="text-slate-500 mb-6 max-w-sm mx-auto">
+                    Baixe o catálogo completo com curvas base, alturas de montagem e tabelas de disponibilidade.
+                  </p>
+                  
+                  {/* BOTÃO DE DOWNLOAD REAL */}
+                  <a 
+                    href="/catalogo.pdf" 
+                    download="Catalogo_Hayamax_2024.pdf" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full max-w-md"
+                  >
+                    <Button className="w-full bg-slate-900 hover:bg-slate-800 h-14 text-lg shadow-xl shadow-slate-900/10">
+                      <Download className="mr-2 h-5 w-5" />
+                      Baixar Catálogo PDF
+                    </Button>
+                  </a>
+                </div>
               </div>
 
             </div>
