@@ -19,7 +19,7 @@ export default function Home() {
     <main className="min-h-screen bg-white">
       
       {/* --- TOP BAR (FAIXA SUPERIOR) --- */}
-      <div className="bg-slate-950 text-slate-300 py-3 px-6 border-b border-slate-800 hidden md:block">
+      <div className="bg-slate-950 text-slate-300 py-2.5 px-6 border-b border-slate-800 hidden md:block">
         <div className="max-w-7xl mx-auto flex justify-between items-center text-xs font-medium tracking-wide">
           <div className="flex gap-6">
             <span className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer">
@@ -35,19 +35,24 @@ export default function Home() {
         </div>
       </div>
 
-      {/* --- HEADER PRINCIPAL (MAIS ALTO PARA A LOGO CABER) --- */}
+      {/* --- HEADER PRINCIPAL (ALTURA PADRÃO RESTAURADA) --- */}
       <header className="sticky top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-lg shadow-slate-200/50">
-        {/* Aumentei a altura de h-28 para h-32 (128px) */}
-        <div className="max-w-7xl mx-auto px-6 h-32 flex items-center justify-between">
+        {/* Voltei para h-20 (mobile) e h-24 (desktop) - Altura elegante */}
+        <div className="max-w-7xl mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
           
-          {/* LOGO HAYAMAX - LIBERADA */}
-          {/* Aumentei a largura para w-[400px] e altura para h-28 */}
-          <div className="relative w-[280px] h-20 md:w-[450px] md:h-28 flex-shrink-0 -ml-4">
+          {/* LOGO HAYAMAX - TÉCNICA DE ZOOM */}
+          <div className="relative w-48 h-full md:w-72 flex items-center overflow-visible">
+            {/* 
+               TRUQUE DE DESIGN:
+               scale-125: Aumenta a imagem em 25% além do tamanho original
+               origin-left: Mantém ela alinhada à esquerda
+               object-contain: Garante que não distorça
+            */}
             <Image 
               src="/logo.jpg" 
               alt="Hayamax Lentes" 
               fill 
-              className="object-contain object-left"
+              className="object-contain object-left scale-125 origin-left"
               priority
             />
           </div>
@@ -72,15 +77,14 @@ export default function Home() {
             </a>
           </nav>
 
-          <Button className="bg-blue-700 hover:bg-blue-800 text-white font-bold px-8 h-12 rounded-full shadow-lg shadow-blue-700/20 hidden md:inline-flex items-center gap-2 transition-all hover:scale-105">
+          <Button className="bg-blue-700 hover:bg-blue-800 text-white font-bold px-6 h-11 rounded-full shadow-lg shadow-blue-700/20 hidden md:inline-flex items-center gap-2 transition-all hover:scale-105">
             <User className="w-4 h-4" />
             Área do Lojista
           </Button>
         </div>
       </header>
 
-      {/* --- HERO SECTION (BANNER) --- */}
-      {/* Reduzi min-h-[85vh] para min-h-[60vh] e pb-24 para pb-12 para diminuir o buraco */}
+      {/* --- HERO SECTION --- */}
       <section className="pt-12 pb-12 px-6 bg-slate-50 relative overflow-hidden min-h-[60vh] flex items-center">
         
         {/* BACKGROUND IMAGE */}
@@ -131,7 +135,6 @@ export default function Home() {
       </section>
 
       {/* --- SEÇÃO PRODUTOS --- */}
-      {/* Mudei py-28 para pt-16 (padding top menor) para colar na seção de cima */}
       <section id="produtos" className="pt-16 pb-28 px-6 max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">Nossas Linhas Premium</h2>
