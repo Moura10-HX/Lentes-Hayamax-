@@ -39,20 +39,20 @@ export default function Home() {
       <header className="sticky top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-lg shadow-slate-200/50">
         <div className="max-w-7xl mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
           
-          {/* LOGO CONTAINER - SOLUÇÃO SÊNIOR */}
+          {/* LOGO CONTAINER - REDUZIDO EM 40% */}
           {/* 
-             Lógica: Definimos h-full (altura total do header) e w-[600px] (largura exagerada).
-             Isso garante que o único limite para a logo crescer seja a altura do header,
-             e não a largura da caixa.
+             Antes: h-full (ocupava quase 100% da altura)
+             Agora: h-10 (mobile) e h-14 (desktop). 
+             h-14 (56px) é aprox 60% de h-24 (96px).
           */}
-          <div className="relative h-full w-[200px] md:w-[500px] py-2"> 
+          <div className="relative h-10 w-40 md:h-14 md:w-64"> 
             <Image 
               src="/logo.jpg" 
               alt="Hayamax Lentes" 
               fill 
               className="object-contain object-left"
               priority
-              sizes="(max-width: 768px) 200px, 500px"
+              sizes="(max-width: 768px) 160px, 256px"
             />
           </div>
           
