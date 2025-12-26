@@ -9,8 +9,6 @@ import {
   Glasses, 
   MapPin, 
   CheckCircle2,
-  Phone,
-  Mail,
   User
 } from "lucide-react";
 
@@ -18,33 +16,11 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white">
       
-      {/* --- TOP BAR (FAIXA SUPERIOR) --- */}
-      <div className="bg-slate-950 text-slate-300 py-2.5 px-6 border-b border-slate-800 hidden md:block">
-        <div className="max-w-7xl mx-auto flex justify-between items-center text-xs font-medium tracking-wide">
-          <div className="flex gap-6">
-            <span className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer">
-              <Phone className="w-3 h-3" /> Suporte: 0800 123 4567
-            </span>
-            <span className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer">
-              <Mail className="w-3 h-3" /> contato@hayamax.com.br
-            </span>
-          </div>
-          <div className="flex gap-4">
-            <span className="text-slate-500">Uso exclusivo para óticas parceiras</span>
-          </div>
-        </div>
-      </div>
-
-      {/* --- HEADER PRINCIPAL --- */}
+      {/* --- HEADER PRINCIPAL (CLEAN E SOFISTICADO) --- */}
       <header className="sticky top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-lg shadow-slate-200/50">
         <div className="max-w-7xl mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
           
-          {/* LOGO CONTAINER - REDUZIDO EM 40% */}
-          {/* 
-             Antes: h-full (ocupava quase 100% da altura)
-             Agora: h-10 (mobile) e h-14 (desktop). 
-             h-14 (56px) é aprox 60% de h-24 (96px).
-          */}
+          {/* LOGO HAYAMAX */}
           <div className="relative h-10 w-40 md:h-14 md:w-64"> 
             <Image 
               src="/logo.jpg" 
@@ -306,8 +282,22 @@ export default function Home() {
             </ul>
           </div>
         </div>
-        <div className="text-center pt-10 border-t border-slate-900">
+        
+        {/* RODAPÉ INFERIOR COM OPTICOM */}
+        <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-base">© 2024 Hayamax Lentes. Todos os direitos reservados.</p>
+          
+          <div className="flex items-center gap-3 opacity-80 hover:opacity-100 transition-opacity">
+            <span className="text-slate-500 text-sm font-medium">By</span>
+            <div className="relative w-24 h-8">
+               <Image 
+                src="/opticom.jpg" 
+                alt="By Opticom" 
+                fill 
+                className="object-contain object-left"
+              />
+            </div>
+          </div>
         </div>
       </footer>
     </main>
