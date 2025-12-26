@@ -1,3 +1,6 @@
+"use client"; // Adicionado para permitir interatividade (useState)
+
+import { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { 
@@ -13,13 +16,183 @@ import {
   User,
   ScanEye,
   Sparkles,
-  Layers
+  X,
+  Star,
+  Briefcase,
+  Eye
 } from "lucide-react";
 
+// --- DADOS DOS PRODUTOS (CATÁLOGO) ---
+const portfolioHayamax = {
+  multifocais: [
+    {
+      name: "Hayamax Premium",
+      tag: "Topo de Linha",
+      desc: "A máxima personalização biométrica. Campos visuais panorâmicos e adaptação imediata.",
+      color: "from-amber-400 to-yellow-600",
+      icon: Star
+    },
+    {
+      name: "Hayamax Identity",
+      tag: "Alta Performance",
+      desc: "Desenhada para o seu estilo de vida. Equilíbrio perfeito entre longe e perto.",
+      color: "from-blue-500 to-indigo-600",
+      icon: ScanEye
+    },
+    {
+      name: "Hayamax HD Plus",
+      tag: "Intermediária Premium",
+      desc: "Definição aprimorada com corredor progressivo suave.",
+      color: "from-slate-400 to-slate-600",
+      icon: Glasses
+    },
+    {
+      name: "Hayamax HD",
+      tag: "Digital Standard",
+      desc: "Tecnologia digital acessível com excelente custo-benefício.",
+      color: "from-slate-300 to-slate-500",
+      icon: Glasses
+    },
+    {
+      name: "Hayamax Light",
+      tag: "Entrada",
+      desc: "A porta de entrada para o mundo digital FreeForm.",
+      color: "from-slate-200 to-slate-400",
+      icon: Glasses
+    }
+  ],
+  especificas: [
+    {
+      name: "Hayamax Work",
+      category: "Ocupacional",
+      desc: "Foco total em distâncias intermediárias e perto. Ideal para escritório e computador.",
+      icon: Briefcase
+    },
+    {
+      name: "Hayamax Single",
+      category: "Visão Simples",
+      desc: "Lentes digitais monofocais com surfaçagem ponto a ponto para miopia, hipermetropia ou astigmatismo.",
+      icon: Eye
+    }
+  ]
+};
+
 export default function Home() {
+  // Estado para controlar o Modal de Produtos
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Função para abrir o modal e travar a rolagem do fundo
+  const openModal = () => {
+    setIsModalOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  // Função para fechar
+  const closeModal = () => {
+    setIsModalOpen(false);
+    document.body.style.overflow = 'unset';
+  };
+
   return (
     <main className="min-h-screen bg-white">
       
+      {/* --- MODAL DE DETALHES (OVERLAY) --- */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-[100] flex justify-end">
+          {/* Fundo Escuro (Backdrop) */}
+          <div 
+            className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity"
+            onClick={closeModal}
+          ></div>
+
+          {/* Painel Lateral Deslizante */}
+          <div className="relative w-full max-w-2xl h-full bg-white shadow-2xl overflow-y-auto animate-in slide-in-from-right duration-300">
+            
+            {/* Botão Fechar */}
+            <button 
+              onClick={closeModal}
+              className="absolute top-6 right-6 p-2 bg-slate-100 rounded-full hover:bg-slate-200 transition-colors z-10"
+            >
+              <X className="w-6 h-6 text-slate-600" />
+            </button>
+
+            {/* Conteúdo do Modal */}
+            <div className="p-8 md:p-12">
+              <div className="mb-10">
+                <span className="text-blue-600 font-bold tracking-wider text-sm uppercase">Portfólio Completo</span>
+                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2">Família Hayamax</h2>
+                <p className="text-slate-600 mt-4 text-lg">
+                  Conheça a hierarquia de tecnologia das nossas lentes digitais. Uma solução exata para cada perfil de cliente.
+                </p>
+              </div>
+
+              {/* Seção 1: Multifocais (Escada de Valor) */}
+              <div className="mb-12">
+                <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                  <Glasses className="w-5 h-5 text-blue-600" />
+                  Lentes Progressivas (Multifocais)
+                </h3>
+                
+                <div className="space-y-4">
+                  {portfolioHayamax.multifocais.map((item, index) => (
+                    <div key={index} className="group relative overflow-hidden rounded-xl border border-slate-200 p-5 hover:border-blue-300 hover:shadow-md transition-all">
+                      {/* Barra Lateral Colorida indicando Tier */}
+                      <div className={`absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b ${item.color}`}></div>
+                      
+                      <div className="flex items-start gap-4 pl-2">
+                        <div className={`p-2 rounded-lg bg-slate-50 text-slate-700`}>
+                          <item.icon className="w-6 h-6" />
+                        </div>
+                        <div>
+                          <div className="flex items-center gap-3 mb-1">
+                            <h4 className="font-bold text-slate-900 text-lg">{item.name}</h4>
+                            <span className="text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200">
+                              {item.tag}
+                            </span>
+                          </div>
+                          <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Seção 2: Soluções Específicas */}
+              <div>
+                <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                  <Zap className="w-5 h-5 text-amber-500" />
+                  Soluções Específicas
+                </h3>
+                
+                <div className="grid grid-cols-1 gap-4">
+                  {portfolioHayamax.especificas.map((item, index) => (
+                    <div key={index} className="rounded-xl bg-slate-50 p-5 border border-slate-100 flex items-center gap-4">
+                      <div className="p-3 bg-white rounded-full shadow-sm text-slate-900">
+                        <item.icon className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-slate-900">{item.name}</h4>
+                        <p className="text-sm text-slate-500">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* CTA Final do Modal */}
+              <div className="mt-12 pt-8 border-t border-slate-100 text-center">
+                <p className="text-slate-500 mb-4">Dúvida sobre qual indicar?</p>
+                <Button className="w-full bg-slate-900 hover:bg-slate-800 h-12 text-lg">
+                  Baixar Catálogo Técnico PDF
+                </Button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* --- HEADER PRINCIPAL --- */}
       <header className="sticky top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-lg shadow-slate-200/50">
         <div className="max-w-7xl mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
@@ -131,10 +304,9 @@ export default function Home() {
               <ShieldCheck className="w-48 h-48 text-cyan-400" />
             </div>
 
-            {/* Ícone Principal "Tunado" */}
+            {/* Ícone Principal */}
             <div className="h-20 w-20 bg-gradient-to-br from-cyan-900 to-slate-800 rounded-2xl flex items-center justify-center text-cyan-400 mb-8 relative shadow-lg shadow-cyan-500/20 border border-cyan-800">
                <ShieldCheck className="w-10 h-10 drop-shadow-[0_0_8px_rgba(34,211,238,0.8)]" strokeWidth={2} />
-               {/* Detalhe Tech: Brilho */}
                <div className="absolute top-2 right-2 w-2 h-2 bg-cyan-400 rounded-full blur-[1px]"></div>
             </div>
 
@@ -147,14 +319,14 @@ export default function Home() {
             </Button>
           </div>
 
-          {/* POSIÇÃO 2 (MEIO): MULTIFOCAIS */}
+          {/* POSIÇÃO 2 (MEIO): MULTIFOCAIS (COM AÇÃO DE MODAL) */}
           <div className="group relative overflow-hidden rounded-[2rem] bg-white border border-slate-100 p-10 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
             {/* Efeito de Fundo */}
             <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
               <ScanEye className="w-48 h-48 text-blue-600" />
             </div>
             
-            {/* Ícone Principal: Glasses (Clássico) */}
+            {/* Ícone Principal */}
             <div className="h-20 w-20 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-8 relative">
               <Glasses className="w-10 h-10 relative z-10" strokeWidth={2} />
             </div>
@@ -163,8 +335,14 @@ export default function Home() {
             <p className="text-slate-600 mb-10 text-lg leading-relaxed">
               Progressão suave com campos visuais ampliados. Tecnologia FreeForm que elimina distorções periféricas.
             </p>
-            <Button variant="outline" className="w-full h-12 border-blue-200 text-blue-700 font-bold group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-all">
-              Ver Detalhes
+            
+            {/* BOTÃO QUE ABRE O MODAL */}
+            <Button 
+              onClick={openModal}
+              variant="outline" 
+              className="w-full h-12 border-blue-200 text-blue-700 font-bold group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-all"
+            >
+              Ver Todas as Opções
             </Button>
           </div>
 
@@ -175,7 +353,7 @@ export default function Home() {
               <Sun className="w-48 h-48 text-amber-500" />
             </div>
 
-            {/* Ícone Principal: Sun (Original/Clássico) */}
+            {/* Ícone Principal */}
             <div className="h-20 w-20 bg-amber-50 rounded-2xl flex items-center justify-center text-amber-600 mb-8 relative">
               <Sun className="w-10 h-10" strokeWidth={2.5} />
             </div>
