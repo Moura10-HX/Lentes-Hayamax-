@@ -281,13 +281,14 @@ export default function Home() {
           </nav>
           
           {/* BOTÃO DA ÁREA DO CLIENTE (CORRIGIDO) */}
-          <Link 
+          <a
             href="https://site-hayamax-final-git-main-juniors-projects-cef86fc9.vercel.app/login" 
+            rel="noopener noreferrer" 
             className="bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold shadow-lg transition-all hover:-translate-y-0.5 flex items-center gap-2 px-6 py-2"
           >
             <User className="w-5 h-5" />
             Área do Lojista
-          </Link>
+          </a>
           
         </div>
       </header>
@@ -566,4 +567,4 @@ export default function Home() {
       </footer>
     </main>
   );
-}
+  }
