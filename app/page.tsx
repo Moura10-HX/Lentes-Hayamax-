@@ -281,9 +281,9 @@ export default function Home() {
             </a>
           </nav>
           
-          {/* BOTÃO DA ÁREA DO CLIENTE (FIXED LINK) */}
+          {/* BOTÃO DA ÁREA DO CLIENTE (CORRIGIDO PARA DOMÍNIO OFICIAL) */}
           <a
-           href="https://site-hayamax-final.vercel.app/acesso"
+           href="https://www.lenteshayamax.com.br/acesso"
            className="bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold shadow-lg transition-all hover:-translate-y-0.5 flex items-center gap-2 px-6 py-2"
            >
             <User className="w-5 h-5" />
