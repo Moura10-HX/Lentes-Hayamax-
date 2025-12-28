@@ -281,14 +281,13 @@ export default function Home() {
           </nav>
           
           {/* BOTÃO DA ÁREA DO CLIENTE (CORRIGIDO) */}
-          <a
-            href="https://site-hayamax-final-git-main-juniors-projects-cef86fc9.vercel.app/login" 
-            rel="noopener noreferrer" 
-            className="bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold shadow-lg transition-all hover:-translate-y-0.5 flex items-center gap-2 px-6 py-2"
-          >
+          <Link
+           href="/acesso"
+           className="bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold shadow-lg transition-all hover:-translate-y-0.5 flex items-center gap-2 px-6 py-2"
+           >
             <User className="w-5 h-5" />
             Área do Lojista
-          </a>
+          </Link>
           
         </div>
       </header>
@@ -342,7 +341,7 @@ export default function Home() {
             
             {/* BOTÃO 2: WHATSAPP */}
             <a 
-              href="https://wa.me/554333250600?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20as%20lentes%20Hayamax." 
+              href="https://wa.me/5543991081497?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20as%20lentes%20Hayamax." 
               target="_blank" 
               rel="noopener noreferrer"
               className="w-full sm:w-auto"
