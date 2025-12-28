@@ -22,6 +22,7 @@ import {
   X,
   Star
 } from "lucide-react";
+import { IM_Fell_French_Canon } from "next/font/google";
 
 // --- DADOS DOS PRODUTOS ---
 const portfolioHayamax = {
