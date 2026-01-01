@@ -283,7 +283,7 @@ export default function Home() {
           
           {/* BOTÃO DA ÁREA DO CLIENTE (CORRIGIDO PARA DOMÍNIO OFICIAL) */}
           <a
-           href="https://www.lenteshayamax.com.br/acesso"
+           href="https://app.lenteshayamax.com.br"
            className="bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold shadow-lg transition-all hover:-translate-y-0.5 flex items-center gap-2 px-6 py-2"
            >
             <User className="w-5 h-5" />
