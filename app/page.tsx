@@ -107,6 +107,39 @@ export default function Home() {
             className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity"
             onClick={closeModal}
           ></div>
+          {/* BOTÃO DE TESTE SENTRY - VERSÃO ROBUSTA */}
+<button
+  type="button"
+  style={{ 
+    position: 'fixed', 
+    bottom: '20px', 
+    left: '20px', 
+    zIndex: 9999, 
+    backgroundColor: '#dc2626', 
+    color: 'white', 
+    padding: '16px 24px', 
+    borderRadius: '9999px', 
+    fontWeight: 'bold',
+    boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+    cursor: 'pointer',
+    border: '2px solid white'
+  }}
+  onClick={() => {
+    console.log("Botão clicado! Tentando enviar erro...");
+    // Método oficial do Sentry para teste manual
+    // @ts-ignore
+    if (window.Sentry) {
+        // @ts-ignore
+        window.Sentry.captureException(new Error("ERRO MANUAL CONFIRMADO - HAYAMAX"));
+        alert("Erro enviado para o Sentry! Verifique o painel.");
+    } else {
+        // Fallback bruto
+        throw new Error("ERRO MANUAL BRUTO - HAYAMAX");
+    }
+  }}
+>
+  🚨 DISPARAR ERRO
+</button>
 
           {/* Painel Lateral */}
           <div className="relative w-full max-w-2xl h-full bg-white shadow-2xl overflow-y-auto animate-in slide-in-from-right duration-300">
